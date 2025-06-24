@@ -1,0 +1,305 @@
+/* Variables CSS Globales */
+:root {
+    --primary-color: hwb(168 0% 0%);
+    --secondary-color: #00ffbf;
+    --accent-color: #f3f3f3;
+    --light-bg: #dfdfdf;
+    --white-color: #ffffff;
+    --text-color: #000000;
+}
+
+/* Estilos Generales y Tipografía */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    padding-top: 70px; /* Ajuste para el navbar fijo */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Scroll Suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+.navbar .navbar-brand {
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+    color: rgba(0, 0, 0, 0.8);
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover, .navbar .nav-link.active {
+    color: var(--accent-color);
+}
+
+/* Sección Inicio (Banner) */
+#inicio {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    color: var(--white-color);
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee') no-repeat center center;
+    background-size: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-cta {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección Servicios (Cards) */
+.service-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: -40px auto 0;
+    position: relative;
+    border: 5px solid var(--white-color);
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+/* Sección Equipo */
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid var(--white-color);
+}
+
+/* Sección Clientes (Testimonios) */
+.testimonial-card {
+    background: var(--white-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -3px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, rgb(255, 0, 0), orange, yellow, rgb(50, 134, 50), rgb(0, 0, 0), rgb(255, 255, 255), rgb(251, 251, 251));
+    animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--secondary-color);
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--text-color);
+}
+
+/* Controles del carrusel */
+.carousel-controls-external {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.carousel-controls-external .carousel-control-prev,
+.carousel-controls-external .carousel-control-next {
+    position: static;
+    display: inline-flex;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    opacity: 1;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+.carousel-controls-external .carousel-control-prev:hover,
+.carousel-controls-external .carousel-control-next:hover {
+    background-color: var(--secondary-color);
+}
+/* Ocultar indicadores por defecto de Bootstrap */
+#testimonialCarousel .carousel-indicators {
+    display: none;
+}
+
+/* Sección Contacto */
+.contact-card {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgb(76, 75, 75) !important;
+}
+.phone-number {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.phone-number:hover {
+    color: var(--white-color);
+}
+.btn-whatsapp {
+    background-color: #000000;
+    color: var(--white-color);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-whatsapp:hover {
+    background-color: #000000;
+    color: var(--white-color);
+}
+
+.contact-form {
+    background-color: var(--white-color);
+    border-radius: 15px;
+}
+.contact-form .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.contact-form .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+}
+
+.social-icon {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--secondary-color);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 992px) {
+    .testimonial-card {
+        margin-bottom: 2rem;
+    }
+    .carousel-item .col-lg-3:last-child .testimonial-card {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+    .team-member, .service-card {
+        margin-bottom: 2rem;
+    }
+    #clientes .carousel-item .row > div {
+        margin-bottom: 1.5rem;
+    }
+}
